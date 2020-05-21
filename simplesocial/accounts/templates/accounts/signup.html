@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+<!--The Installed library to make forms look nicer-->
+{% load bootstrap4 %}
+
+{% block content %}
+<div class="container">
+    <h1>Sign Up</h1>
+    <!--The "action" is gonna taken care of by Django-->
+    <form method="POST">
+        {% csrf_token %}
+        <!--Make the forms look nicer official documentation:https://pypi.org/project/django-bootstrap4/ -->
+        {% bootstrap_form form %}
+        <input type="submit" class="btn btn-primary" value="Sign Up">
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,56 @@
+/*****************  Basic Navbar and Text CSS *******************/
+
+#logo_brand{
+  width: 60px;
+  height: 55px;
+  margin-bottom: 3px;
+}
+
+#logo_brand2{
+  width: 28px;
+  height: 28px;
+  margin-top: 6px;
+}
+
+#bigbrand{
+  font-size: 1.7em;
+  padding-top: 3px;
+  font-family: 'Josefin Sans', sans-serif;
+  margin-top: 3px;
+}
+
+.navbar-custom {
+  background-color: #34383b;
+  /* background: url("/static/images/navbar_background.jpg") 0% 0 no-repeat fixed; */
+}
+
+/* Modify brand and text color */
+
+.navbar-custom, .navbar-brand, .navbar-text{
+  color: white;
+  text-shadow: 2px 1px 20px #9a959d;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1.1em;
+}
+
+.nav-link{
+  color: white;
+}
+/* Set the border color */
+
+.custom-toggler .navbar-toggler {
+  border-color: #ebcfab;
+}
+/* Setting the stroke to green using rgb values (0, 128, 0) */
+
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(247, 187, 109, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+/*******************  Body ********************/
+
+.content{
+  margin-left: 15%;
+  margin-top: 5%;
+  margin-bottom: 5%
+}

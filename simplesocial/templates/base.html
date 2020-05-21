@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Wild Fans</title>
+    <!-- Bootstrap local css -->
+    <link rel="stylesheet" href="{% static 'simplesocial/css/bootstrap.css' %}">
+
+    <!-- Font Awsome   -->
+    <script src="https://kit.fontawesome.com/57433fac3b.js" crossorigin="anonymous"></script>
+
+    <!-- Custom master css -->
+    <link rel="stylesheet" href="{% static 'simplesocial/css/master.css' %}">
+
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&family=Merriweather:wght@300&family=Righteous&display=swap" rel="stylesheet">
+    <!-- font-family: 'Righteous', cursive; font-family: 'Merriweather', serif; font-family: 'Josefin Sans', sans-serif; -->
+
+</head>
+
+<body class="body-back">
+
+    <!-- Setting the navbar and its style -->
+    <nav class="navbar navbar-expand-lg navbar-custom mynav" role="navigation" id="navbar">
+
+      <div class="container">
+        <!-- Setting the brand(main letter on left) here ""-->
+        <a class="navbar-brand" id="bigbrand" href="{% url 'home' %}">
+         <img id="logo_brand" src="{% static 'simplesocial/images/wf_logo2.png' %}" class="d-inline-block" alt="Na NAA, Error!">
+          WildFans
+        </a>
+        <!-- d-inline-block align-top -->
+
+        <!-- Adding the Hamburger button -->
+        <button class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Dropdown and adding the Home link, ul > li item > content(anchor tag)-->
+        <div class="collapse navbar-collapse mynav" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto navbar-right">
+          {% if user.is_authenticated %}
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Post<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Groups<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Create Group<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'accounts:logout' %}">Log Out<span class="sr-only">(current)</span></a>
+            </li>
+          {% else %}
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Groups<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'accounts:login' %}">Log In<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'accounts:signup' %}">Sign Up<span class="sr-only">(current)</span></a>
+            </li>
+          {% endif %}
+        </ul>
+<!--        <ul class="navbar-nav ml-auto navbar-right loader">-->
+<!--            <li class="nav-item active">-->
+<!--              <a class="nav-link" href="#">New Post</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item active">-->
+<!--              <a class="nav-link" href="#">Drafts</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item active">-->
+<!--              <a class="nav-link" href="#">Log Out</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item active">-->
+<!--              <a class="nav-link" id="welcome"></a>-->
+<!--            </li>-->
+
+<!--            &lt;!&ndash; fontawsome icon use &ndash;&gt;-->
+<!--            <li class="nav-item active">-->
+<!--              <a class="nav-link navbar-right loginbutton" href="#"><i class="far fa-address-card"></i></a>-->
+<!--            </li>-->
+<!--        </ul>-->
+        </div>
+      </div>
+    </nav>
+
+
+    <!-- CONTENT BLOCK -->
+    <div class="content container">
+      <!-- row, collapsing things -->
+      <div class="row">
+        <div class="col-xs-6 col-lg-10">
+          <!-- col-md-8 col-sm-8 -->
+          <div class="blog-posts">
+              {% block content %}
+                <!-- Anything inside will be protected  -->
+              {% endblock %}
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+<!--Compailed JS Bootstrap-->
+
+<!-- Necessory jquery and bootstrap files -->
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+
+    <!-- local bootstrap js files -->
+    <script src="{% static 'simplesocial/js/bootstrap.js' %}"></script>
+    </html>
