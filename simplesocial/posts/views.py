@@ -6,6 +6,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from django.urls import reverse_lazy
 
+# to display a one-time notification message (also known as “flash message”) to the user after processing a form
+# or some other types of user input.
+from django.contrib import messages
 # The general CBVs
 from django.views import generic
 
