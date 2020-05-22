@@ -13,4 +13,6 @@ urlpatterns = [
     # <slug> --> slugifies the actual group name
     path('posts/in/<slug>/', views.SingleGroup.as_view(), name='single'),
     # Views for joining and leaving group
+    path('join/<slug>/', views.JoinGroup.as_view(), name='join'),
+    path('leave/<slug>/', views.LeaveGroup.as_view(), name='leave'),
 ]

@@ -82,9 +82,9 @@ class GroupMember(models.Model):
     """
     # The model 'GroupMember' is related to model 'Group' through this foreign key
     # A member must have membership in a group
-    group = models.ForeignKey(Group, related_name='memberships', on_delete='CASCADE')
+    group = models.ForeignKey(Group, related_name='memberships', on_delete=models.CASCADE)
     # Every groupmember is a user(authenticated signed user inbuilt class), the user can be a member of different groups
-    user = models.ForeignKey(User, related_name='user_groups', on_delete='CASCADE')
+    user = models.ForeignKey(User, related_name='user_groups', on_delete=models.CASCADE)
 
     def __str__(self):
         """

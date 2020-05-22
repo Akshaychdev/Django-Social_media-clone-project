@@ -3,7 +3,8 @@ from django.urls import path
 # The name 'auth_views' given so as don't to mix-up with original views
 from django.contrib.auth import views as auth_views
 
-from django.contrib.auth import views
+from . import views
+
 app_name = 'accounts'
 
 urlpatterns = [
