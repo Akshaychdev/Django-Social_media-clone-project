@@ -59,11 +59,11 @@ L
 simplesocial/groups/views.py,c\3\c3e9d1f1892636137bdccc7dad393de91d01dec4
 9
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
-M
-simplesocial/requirements.txt,0\5\052cf3f161cd28373da2b59a9a1929ca7a50b408
 @
 requirements.txt,1\9\19359a61ae2446b51b549167b014da2fcf265768
 L
 simplesocial/groups/admin.py,5\1\51270148f3d613340c14a86a501cb0e3f1eb0bb3
 K
 simplesocial/posts/views.py,4\7\4751b14f17818e7aff96da865144a23d15f18905
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0

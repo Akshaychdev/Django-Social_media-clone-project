@@ -12,6 +12,7 @@ from django.contrib import messages
 # The general CBVs
 from django.views import generic
 
+# to raise 404 error
 from django.http import Http404
 
 # Extra methods required to insure that certain privileges are connected to
@@ -143,10 +144,11 @@ class DeletePost(LoginRequiredMixin, SelectRelatedMixin, generic.DeleteView):
 
     def delete(self, *args, **kwargs):
         """
-        messeges that Post deleted??
+        messeges that Post deleted using inbuilt messages framework
         :param args:
         :param kwargs:
         :return:
         """
+        # 'messages.success' is used when an action was successful, here “Post Deleted”
         messages.success(self.request, 'Post Deleted')
         return super().delete(*args, **kwargs)
