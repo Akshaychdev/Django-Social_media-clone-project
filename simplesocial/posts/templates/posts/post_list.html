@@ -7,14 +7,14 @@
       <div class="content">
         <h5 class="title">Your Groups</h5>
         <ul class="list-unstyled">
-          {# line 19 - 23 of groups/models.py #}
-          {# user_groups is related name in GroupMember model user(foreignkey) #}
-          {# Allows a link from post to the group member #}
-          {# Explanation coming>>>>!!! #}
+          <!-- line 19 - 23 of groups/models.py -->
+          <!-- user_groups is related name in GroupMember model user(foreignkey) -->
+          <!-- Allows a link from post to the group member -->
+          <!-- Explanation coming>>>>!!! -->
           {% for member_group in get_user_groups %}
-            {# member_group => is a GroupMember(model) item(groups which user is a member,
-            it contains two fields group, user)get_user_groups => all the groups that the user is a member off/uses #}
-            {# The 'single' is the SingleGroup view #}
+            <!-- member_group => is a GroupMember(model) item(groups which user is a member,
+            it contains two fields group, user)get_user_groups => all the groups that the user is a member off/uses -->
+            <!-- The 'single' is the SingleGroup view -->
             <li class="group li-with-bullet">
               <a href="{% url 'groups:single' slug=member_group.group.slug %}"></a>
             </li>
@@ -40,7 +40,7 @@
 
 {% endblock %}
 
-{# The post content block #}
+<!-- The post content block -->
 {% block post_content %}
 <div class="col-md-8">
 

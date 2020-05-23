@@ -17,7 +17,8 @@
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&family=Merriweather:wght@300&family=Righteous&display=swap" rel="stylesheet">
     <!-- font-family: 'Righteous', cursive; font-family: 'Merriweather', serif; font-family: 'Josefin Sans', sans-serif; -->
-
+    <link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap" rel="stylesheet">
+    <!-- font-family: 'Chelsea Market', cursive;-->
 </head>
 
 <body class="body-back">
@@ -43,20 +44,20 @@
         <ul class="navbar-nav ml-auto navbar-right">
           {% if user.is_authenticated %}
             <li class="nav-item active">
-              <a class="nav-link" href="#">Post<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{% url 'posts:create' %}">Post<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="#">Groups<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{% url 'groups:all' %}">Groups<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="#">Create Group<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{% url 'groups:create' %}">Create Group<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="{% url 'accounts:logout' %}">Log Out<span class="sr-only">(current)</span></a>
             </li>
           {% else %}
             <li class="nav-item active">
-              <a class="nav-link" href="#">Groups<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{% url 'groups:all' %}">Groups<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="{% url 'accounts:login' %}">Log In<span class="sr-only">(current)</span></a>
@@ -105,9 +106,12 @@
       </div>
     </div>
 </body>
-<!--Compailed JS Bootstrap-->
+    <!-- local js files files -->
+    <script type="text/javascript" src="{% static 'simplesocial/js/master.js' %}"></script>
 
-<!-- Necessory jquery and bootstrap files -->
+    <!--Compailed JS Bootstrap-->
+
+    <!-- Necessory jquery and bootstrap files -->
     <script
     src="https://code.jquery.com/jquery-3.4.1.js"
     integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
@@ -115,4 +119,5 @@
 
     <!-- local bootstrap js files -->
     <script src="{% static 'simplesocial/js/bootstrap.js' %}"></script>
+
     </html>

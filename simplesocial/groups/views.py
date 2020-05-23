@@ -8,6 +8,7 @@ from django.urls import reverse
 from django.views import generic
 
 from groups.models import Group, GroupMember
+from . import models
 
 from django.shortcuts import get_object_or_404
 
@@ -101,13 +102,13 @@ class LeaveGroup(LoginRequiredMixin, generic.RedirectView):
         try:
             # Try to get the existing membership in the group wanted to leave
             # By filtering entries in the GroupMember model(contains user-group relation data)
-            membership = GroupMember.objects.filter(
+            membership = models.GroupMember.objects.filter(
                 # user already in the group
                 user=self.request.user,
                 group__slug=self.kwargs.get('slug')
             ).get()
         # DoesNotExist call on a GroupMember object(that group member relation b/w the user and group not exists)
-        except GroupMember.DoesNotExist:
+        except models.GroupMember.DoesNotExist:
             # one clicked the leave button in a group, he is not a member of
             messages.warning(self.request, 'Sorry you are not in this Group!')
         else:

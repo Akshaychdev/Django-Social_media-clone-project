@@ -1,28 +1,33 @@
 <div class="post media">
-  {# Not need to extend, It is not a part of a full page #}
+
+  <!-- Not need to extend, It is not a part of a full page -->
   <!--Used to inject in to other 'post.html' files( used if template files are larger)-->
+
   <h3>{{post.message_html|safe}}</h3>
-  {# message_html is the misakafied message in the Post model #}
+  <!-- message_html is the misakafied message in the Post model -->
   <div class="media-body">
-    {# who ever wrote the post #}
-    <strong>{{post.user.username}}</strong>
+    <!-- who ever wrote the post -->
+    {# <strong>{{post.user.username}}</strong> #}
     <h5 class="media-heading">
-      {# By clicking on the username it will take you to all the posts of the user #}
+      <!-- By clicking on the username it will take you to all the posts of the user -->
       <span class="username">
-        {# the urlname 'for_user' takes one to the view UserPosts:The view of all posts by user #}
-        <a href="{% url 'posts:for_user' username=post.user.username %}"></a>
+        <!-- the urlname 'for_user' takes one to the view UserPosts:The view of all posts by user -->
+        <a href="{% url 'posts:for_user' username=post.user.username %}">@{{post.user.username}}</a>
       </span>
-      {# Time tags allows one to show the time #}
+
+      <!-- Time tags allows one to show the time -->
       <time class="time">
         <a href="{% url 'posts:single' username=post.user.username pk=post.pk %}">
+          {{post.created_at}}
         </a>
       </time>
+
     </h5>
     <div class="media-footer">
-      {# This two items need to be matched for a user inorder to delete that #}
+      <!-- This two items need to be matched for a user inorder to delete that -->
       {% if user.is_authenticated and post.user == user %}
-        <a href="{% url 'posts:delete' pk=posts.pk %}" title="delete" class="btn btn-primary">
-          {# For disabled screen rader help in html5 'aria-hidden' #}
+        <a href="{% url 'posts:delete' pk=post.pk %}" title="delete" class="btn btn-primary">
+          <!-- For disabled screen rader help in html5 'aria-hidden' -->
           <span aria-hidden="true"><i class="fas fa-trash-alt"></i></span>
           <span class="text-danger icon-label">Delete</span>
         </a>

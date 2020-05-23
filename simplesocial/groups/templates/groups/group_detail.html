@@ -2,19 +2,19 @@
 
 {% block pregroup %}
 
-{# In CBVs, a hidden context dictionry passes that holdes everything a model has[in the backend] #}
-{# The word 'group' is the lowercased version of our model 'Group'[Django names the context dictionary-->group] #}
+<!-- In CBVs, a hidden context dictionry passes that holdes everything a model has[in the backend] -->
+<!-- The word 'group' is the lowercased version of our model 'Group'[Django names the context dictionary ==> group] -->
 <h1>{{group.name}}</h1>
-{# The 'count' method built in model object also the 'all' below #}
+<!-- The 'count' method built in model object also the 'all' below -->
 <h2>Member Count: {{group.members.count}}</h2>
 
-{# Leave or Join Button #}
+<!-- Leave or Join Button -->
 <div class="content">
 
   {% if user in group.members.all %}
     <a href="{% url 'groups:leave' slug=group.slug %}"
       class="btn btn-lg btn-fill btn-warning">
-      {# Bootstrap icon library #}
+      <!-- Bootstrap icon library -->
       <svg class="bi bi-box-arrow-right" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" d="M11.646 11.354a.5.5 0 010-.708L14.293 8l-2.647-2.646a.5.5 0 01.708-.708l3 3a.5.5 0 010 .708l-3 3a.5.5 0 01-.708 0z" clip-rule="evenodd"/>
         <path fill-rule="evenodd" d="M4.5 8a.5.5 0 01.5-.5h9a.5.5 0 010 1H5a.5.5 0 01-.5-.5z" clip-rule="evenodd"/>
@@ -25,7 +25,7 @@
   {% else %}
     <a href="{% url 'groups:join' slug=group.slug %}"
       class="btn btn-lg btn-fill btn-primary">
-      {# Bootstrap icon library #}
+      <!-- Bootstrap icon library -->
       <svg class="bi bi-box-arrow-right" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" d="M11.646 11.354a.5.5 0 010-.708L14.293 8l-2.647-2.646a.5.5 0 01.708-.708l3 3a.5.5 0 010 .708l-3 3a.5.5 0 01-.708 0z" clip-rule="evenodd"/>
         <path fill-rule="evenodd" d="M4.5 8a.5.5 0 01.5-.5h9a.5.5 0 010 1H5a.5.5 0 01-.5-.5z" clip-rule="evenodd"/>
@@ -37,24 +37,24 @@
 </div>
 {% endblock %}
 
-{# The next block #}
+<!-- The next block -->
 
 {% block group_content %}
-{# not want to take up the whole page- lined up a little bit  #}
+<!-- not want to take up the whole page- lined up a little bit  -->
 <div class="col-md-8">
-  {# group.posts <-- related name #}
-  {% if group.posts.count==0 %}
+  <!-- group.posts <== related name -->
+  {% if group.posts.count == 0 %}
     <h2>No posts in this group Yet!</h2>
 
   {% else %}
-    {# If there is posts in that group, for every post include "_posts"....#}
-    {# Using 'include' is another way of
-    'extends' an html, but here 'include' is injecting a particular html (not like
-    'base.html' that contains every detail) but it injects particulerly designed
-    templates in the middle of a page, developed with special purpose,
-    they can be identified from other templates with using
-    a special annotation to help the developers as like '_post.html' the "_" shows
-    this one is ment to be injected #}
+    <!-- If there is posts in that group, for every post include "_posts"....
+          Using 'include' is another way of
+          'extends' an html, but here 'include' is injecting a particular html (not like
+          'base.html' that contains every detail) but it injects particulerly designed
+          templates in the middle of a page, developed with special purpose,
+          they can be identified from other templates with using
+          a special annotation to help the developers as like '_post.html' the "_" shows
+          this one is ment to be injected -->
     {% for post in group.posts.all %}
       {% include "posts/_post.html" %}
     {% endfor %}
