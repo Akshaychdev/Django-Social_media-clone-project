@@ -14,7 +14,7 @@ Faker==4.0.3
 idna==2.9
 misaka==2.1.1
 mysql-connector-python==8.0.19
-Pillow==7.1.2
+Pillow==9.3.0
 protobuf==3.6.1
 pycparser==2.20
 pypi==2.1
